@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Position02 Overflow, z- Index **</title>
+<style>
+
+	*:not(hr){ margin:0; padding: 0; border: 0; }
+	/* 	
+		=>초기화 전, 후 비교
+		=>초기화에서 border:0을 적용하면 hr이 안나타남(주의)  */
+
+	.pbox { width:400px; height:200px;
+			border: 3px solid black;
+			position:absolute; left: 30px; top:50px;
+			overflow: auto;
+			 }
+			/* scroll > 안보이는 부분을 스크롤(필요없는 부분마저 보여줌)
+				hidden > 안보이는 부분을 아예 안보이게
+				auto > 안보이는 부분만 보여주게 스크롤 */
+			 /* hidden/scroll/auto:필요한곳에만 자동으로 scroll 표시 */
+			 /* position: absolute / fixed/ relative / static */
+	.box { width:100px; height:100px; position:absolute; }
+	.box:nth-child(1) { background-color:coral; left:10px; top:10px; z-index: 10; }
+	.box:nth-child(2) { background-color:deepskyblue; left:70px; top:70px; z-index: 9; }
+	.box:nth-child(3) { background-color:lime; left:140px; top:140px; z-index: 8; }
+
+</style>
+</head>
+<body>
+<h2> ** Position Overflow test **</h2>
+<div class="pbox">
+	<div class="box">1111</div>
+	<div class="box">2222</div>
+	<div class="box">3333</div>	
+</div>
+<hr>
+<pre>
+** Position과 연관되는 속성 **
+=> overflow : 부모 Tag 에 주로 적용 
+=> z-index : 표시되는 순서, 숫자가 높아질수록 우선순위
+
+** Position 에 따른 문제점
+=> absolute 사용시 다른요소에 무관하게 무조건 위치하므로 다른 태그들이 가려짐
+   -> z-index (값이 클수록 우선순위를 가짐)
+=> 상위 요소를 벗어나는 부분에 대한 해결
+   -> overflow
+</pre>
+
+</body>
+</html>

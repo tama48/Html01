@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Structured Child **</title>
+<style>
+	li {
+		list-style: none;
+		float: left;
+		padding: 30px
+	/* 	padding은 간격 */
+	}
+	/* 선택적적용 */
+	li:nth-child(2n){ background-color: yellow;}
+		/* 	n의 값이 자동으로 0 부터 적용 -> 앞에서부터 짝수번째 적용*/
+	li:nth-child(2n+1){ background-color: blue; color: white;}
+		/* 	n의 값이 자동으로 0 부터 적용 -> 앞에서부터 홀수번째 적용*/
+	li:nth-child(4) {background-color: red;}
+		
+	li:first-child { border-radius: 15px 0 0 15px;}
+	/* 	radius=> 둥글게 */
+	li:last-child { border-radius: 0 15px 15px 0;}
+	
+	h2:first-child { color: green; }
+	h2:nth-child(2) {font-style:italic;}
+/* 	조건을 만족하는 대상이 없으면 실행안됨 */
+	h2:nth-child(4) {font-style:italic;}
+	
+</style>
+</head>
+<body>
+<!-- 태그가 없으면 Child 순서에 포함안됨 -->
+<h2>** Structured Child **</h2> <!-- Child1 -->
+<pre> <!-- Child2 -->
+=> 여러 child 중 조건별 선택<br>
+=> first, last,순서
+</pre>
+<h2>** Child 순서 Test **</h2> <!-- Child3 -->
+<h2>=> nth-child(?)</h2> <!-- Child4 -->
+<ul> <!-- Child5 -->
+	<li>1 째
+	<li>2 째
+	<li>3 째
+	<li>4 째
+	<li>5 째
+	<li>6 째
+	<li>7 째		
+</ul>
+</body>
+</html>
